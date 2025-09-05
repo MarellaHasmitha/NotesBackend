@@ -24,7 +24,12 @@ public class Note {
     private LocalDateTime updatedAt;
 
     private String shareableLink;
+     
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
+    
     @PrePersist
     public void onCreate() {
         this.createdAt = LocalDateTime.now();
